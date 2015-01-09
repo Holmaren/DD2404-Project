@@ -45,9 +45,10 @@ if __name__=="__main__":
 	referenceTreeStr=refTreeHandle.read()
 	inferredTreeStr=sys.stdin.read()
 
-
+	#Call the function to compare the two trees using dendropy
 	distance=compareTrees(referenceTreeStr,inferredTreeStr)
 
+	#Print the calculated distance to stdout
 	print distance
 	
 
