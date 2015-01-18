@@ -40,8 +40,8 @@ if __name__=="__main__":
 		sys.exit("Usage: ./compare_trees.py <referenceTreeFileName>")
 
 	#If stdin is empty exit
-	if not select.select([sys.stdin,],[],[],0.0)[0]:
-		sys.exit("No data in stdin")
+	if sys.stdin.isatty():
+		sys.exit("Error in compare_trees. No data in stdin")
 
 	fileName=sys.argv[1]
 

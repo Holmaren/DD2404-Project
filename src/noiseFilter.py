@@ -132,7 +132,7 @@ if __name__=="__main__":
 
 	recordSeqs=removeColumns(recordSeqs,noisyColumns)
 
-	sys.stderr.write(str(nrOfRemovedCols)+" columns were removed\n")
+	#sys.stderr.write(str(nrOfRemovedCols)+" columns were removed\n")
 
 	#Now we write the alignment to stdout
 	seqRecords=[]
