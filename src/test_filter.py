@@ -2,7 +2,6 @@
 
 import noiseFilter as filt
 from Bio.Seq import Seq
-import test
 
 #Used to test the functions isNoisy and removeColumns in noiseFilter.py
 
@@ -41,6 +40,7 @@ for i in xrange(len(sequences)):
 #print "supposeToBe",sequencesAfter
 #print "is",resultSeq
 
+print "Test successful"
 
 
 

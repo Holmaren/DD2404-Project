@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+import select
 import dendropy
 
 '''
@@ -37,6 +38,10 @@ def compareTrees(tree1Str,tree2Str):
 if __name__=="__main__":
 	if len(sys.argv)!=2:
 		sys.exit("Usage: ./compare_trees.py <referenceTreeFileName>")
+
+	#If stdin is empty exit
+	if not select.select([sys.stdin,],[],[],0.0)[0]:
+		sys.exit("No data in stdin")
 
 	fileName=sys.argv[1]
 
