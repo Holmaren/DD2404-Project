@@ -1,0 +1,7 @@
+Directory Name 	Mean Filtered	Mean UnFiltered		Decreased	Increased
+asymmetric_0.5 	7.38 		7.633 			76 		49
+asymmetric_1.0 	9.34 		9.427 			90 		77
+asymmetric_2.0 	11.7 		12.34 			116 		72
+symmetric_0.5 	4.013 		4.16 			66 		49
+symmetric_1.0 	4.9 		5.013 			79 		65
+symmetric_2.0 	6.333 		6.96 			124 		72

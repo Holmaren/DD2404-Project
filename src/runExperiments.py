@@ -82,7 +82,7 @@ def analyzeFiles(filePaths):
 
 			#Updating variables
 			sumUnFiltered+=curUnFilterAns
-			sumFiltered+=curFilterAns
+			sumFiltered+=curFilterAns	
 			
 			#Checking if using the filter increased or decreased the difference to the reference tree
 			if (curUnFilterAns<curFilterAns):
@@ -91,8 +91,8 @@ def analyzeFiles(filePaths):
 				sumFilterDecrease+=1
 
 		totNrOfFiles+=nrOfFiles
-		curMeanUnFiltered=float(sumUnFiltered)/float(nrOfFiles)
-		curMeanFiltered=float(sumFiltered)/float(nrOfFiles)
+		curMeanUnFiltered=round(float(sumUnFiltered)/float(nrOfFiles),3)
+		curMeanFiltered=round(float(sumFiltered)/float(nrOfFiles),3)
 		#print "CurMeanUnFiltered",curMeanUnFiltered
 		#print "CurMeanFiltered",curMeanFiltered
 
@@ -112,10 +112,10 @@ if(len(sys.argv)>1):
 
 #Defining a list of tuples were each tuple contains two strings,
 #one to locate the mutated files and one to locate the reference tree
-filePaths=[("../data/asymmetric_0.5/*.msl","../data/asymmetric_0.5/*.tree")]
+filePaths=[("../data/asymmetric_0.5/*.msl","../data/asymmetric_0.5/*.tree"),("../data/asymmetric_1.0/*.msl","../data/asymmetric_1.0/*.tree"),("../data/asymmetric_2.0/*.msl","../data/asymmetric_2.0/*.tree"),("../data/symmetric_0.5/*.msl","../data/symmetric_0.5/*.tree"),("../data/symmetric_1.0/*.msl","../data/symmetric_1.0/*.tree"),("../data/symmetric_2.0/*.msl","../data/symmetric_2.0/*.tree")]
 
 #Count the amount of files to be able to compare later
-childArgs=['find ../data/asymmetric_0.5/*.msl | wc -l']
+childArgs=['find ../data/*/*.msl | wc -l']
 child=subprocess.Popen(childArgs, stdout=subprocess.PIPE, shell=True)
 child.wait()
 nrFiles=int(child.stdout.read())
@@ -149,7 +149,7 @@ for i in xrange(len(listMeans)):
 	(meanFiltered,meanUnFiltered)=listMeans[i]
 	(filterDecreased,filterIncreased)=listChanges[i]
 
-	print directoryNames[i], "	",meanFiltered,"		",meanUnFiltered,"		"\
+	print directoryNames[i], "	",meanFiltered,"		",meanUnFiltered,"			"\
 	,filterDecreased,"		",filterIncreased
 
 
