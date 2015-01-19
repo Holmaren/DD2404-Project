@@ -46,7 +46,7 @@ def analyzeFiles(filePaths):
 	for i in xrange(nrFilePaths):
 
 
-		sys.stderr.write( "--- Processing file path ",i+1," of ",nrFilePaths," --- \n"	)
+		sys.stderr.write("--- Processing file path "+str(i+1)+" of "+str(nrFilePaths)+" --- \n"	)
 
 
 		sumUnFiltered=0
@@ -136,8 +136,8 @@ sys.stderr.write("Start processing files, please wait... \n")
 (totFiles,listMeans,listChanges)=analyzeFiles(filePaths)
 
 if(totFiles!=nrFiles):
-	sys.exit("WARNING: ",nrFiles," number of files ending with .msl were found in the "+\
-	"specified directory but only ",totFiles," number of files has been analyzed")
+	sys.stderr.write("WARNING: "+str(nrFiles)+" files ending with .msl were found in the "+\
+	"specified directory but only "+str(totFiles)+" files has been analyzed \n")
 
 
 #Printing data to standard out
