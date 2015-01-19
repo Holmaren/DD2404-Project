@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 
 import noiseFilter as filt
+from Bio import SeqIO
 from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+import sys
 
 #Used to test the functions isNoisy and removeColumns in noiseFilter.py
 
@@ -39,6 +42,16 @@ for i in xrange(len(sequences)):
 
 #print "supposeToBe",sequencesAfter
 #print "is",resultSeq
+
+
+#If stdin is not empty run test on sequences that are suppose to not be noisy
+if not sys.stdin.isatty():
+	
+	for record in SeqIO.parse(sys.stdin,"fasta"):
+		assert not filt.isNoisy(record.seq)
+
+
+
 
 print "Test successful"
 
